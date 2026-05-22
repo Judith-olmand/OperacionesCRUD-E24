@@ -3,7 +3,11 @@ package org.example;
 import java.sql.*;
 import java.util.*;
 
+import javafx.beans.Observable;
+import javafx.collections.*;
 import javafx.scene.control.TableView;
+
+import static org.example.VentanaTabla.tableView;
 
 public class CargarDatosBBDD {
     // METODO QUE RECIBE LA TABLE-VIEW DE ARTISTA (ES LLAMADO DESDE VentanaTabla)
@@ -45,4 +49,30 @@ public class CargarDatosBBDD {
         //DEVUELVE EL SET
         return artistas;
     }
+
+// ---------------------------------------------------------------------------------------------------------------------
+    // MÉTODO PARA EL EJERCICIO 25, AÑADIR FILTRADO AL TABLE-VIEW
+    public static ObservableList<Artista> cargarArtistas() {
+        ObservableList<Artista> listaArtistas = FXCollections.observableArrayList();
+
+        try (Connection conn = ConexionBBDD.conectar();
+             Statement stmt = conn.createStatement();
+             // CONSULTA QUE DEVUELVE UN LISTADO DE ARTISTAS CON SU GENERO MUSICAL
+             ResultSet rs = stmt.executeQuery("SELECT NOMBRE_A, GENERO_MUSICAL FROM ARTISTA");) {
+            while (rs.next()) {
+                String nombre = rs.getString(1);
+                String genero = rs.getString(2);
+                /**
+                 * CREA UN OBJETO ARTISTA CON LOS DATOS Y LOS AÑADE DIRECTAMENTE A LA TABLA
+                 */
+                listaArtistas.add(new Artista(nombre, genero));
+            }
+        } catch (Exception e) {
+            System.out.println("Error al cargar datos: " + e);
+        }
+        return listaArtistas;
+    }
+
+
+
 }

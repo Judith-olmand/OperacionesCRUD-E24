@@ -1,6 +1,7 @@
 package org.example;
 
-import javafx.collections.transformation.SortedList;
+import javafx.collections.*;
+import javafx.collections.transformation.*;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -39,20 +40,53 @@ public class VentanaTabla {
         // SE AÑADEN A LA TABLA
         tableView.getColumns().addAll(nombreCol, generoCol);
 
+// --------------------------------------------------------------------------------------------------------------------
+        //AÑADIDO PARA EL EJERCICIO 25
+        //CARGAR DATOS
+        ObservableList<Artista> listaOriginal = CargarDatosBBDD.cargarArtistas();
 
-//        Button ordenar = new Button("Ordenar");
-//        ordenar.setOnAction(event -> {SortedList<Artista> sortedList = new SortedList<>(tableView.getItems());
-//            sortedList.comparatorProperty().bind(tableView.comparatorProperty());
-//            tableView.setItems(sortedList);});
+        //PARA ENVOLVER LA LISTA PRINCIPAL
+        // p -> true =  AL INICIO SE MUESTRAN TODOS
+        FilteredList<Artista> listaFiltrada = new FilteredList<>(listaOriginal, p -> true);
 
+        //MOSTRAMOS LA TABLA FILTRADA
+        tableView.setItems(listaFiltrada);
 
+        //COMBOBOX PARA SELECCIONAR LOS GENEROS A MOSTRAR
+        ComboBox<String> comboBox = new ComboBox<>();
+        comboBox.getItems().add("Todos");
 
-        VBox vbox = new VBox(tableView);
+        // RECORRO LA LISTA ORIGINAL Y AÑADO LOS GÉNEROS AL COMBOBOX SIN REPETIR
+        for (Artista artista : listaOriginal){
+            if (!comboBox.getItems().contains(artista.getGenero())){
+                comboBox.getItems().add(artista.getGenero());
+            }
+        }
+
+        // VALOR POR DEFECTO
+        comboBox.setValue("Todos");
+
+        /**
+         * valueProperty() --> representa el valor seleccionado del ComboBox como algo "vivo"
+         * addListener() --> le pone un vigilante encima, cada vez que el valor del ComboBox cambia, ejecuta el código de dentro automáticamente.
+         *
+         */
+        comboBox.valueProperty().addListener((observable, valoranterior, nuevovalor) -> {
+            listaFiltrada.setPredicate(artista -> {if (nuevovalor == null ||
+            nuevovalor.equals("Todos")) return true; return artista.getGenero().equalsIgnoreCase(nuevovalor);});
+        });
+
+//--------------------------------------------------------------------------------------------------------------------------------
+
+        VBox vbox = new VBox(comboBox,tableView);
         Scene scene = new Scene(vbox, 402, 300);
         ventana2.setScene(scene);
         ventana2.show();
 
+        //COMENTADO PARA EL EJERCICIO 25
         // LLAMA AL MÉTODO PARA CARGAR LOS ARTISTAS EN LA TABLE-VIEW, QUE ES PASADA POR PARÁMETRO
-        CargarDatosBBDD.cargarDatos(tableView);
+        //CargarDatosBBDD.cargarDatos(tableView);
     }
+
+
 }
