@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,6 +16,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        Font.loadFont(getClass().getResourceAsStream("/fonts/Macondo-Regular.ttf"), 14);
+
         //Título de la ventana principal
         primaryStage.setTitle("Ejercicio 24");
 
@@ -29,7 +32,7 @@ public class Main extends Application {
         eliminar.setPrefSize(400,200);
 
         VBox root = new VBox(insertar, leer, actualizar, eliminar);
-        Scene scene = new Scene(root,300,250);
+        Scene scene = new Scene(root,400,350);
         primaryStage.setScene(scene);
         primaryStage.show();
 
@@ -37,6 +40,9 @@ public class Main extends Application {
         leer.setOnAction(e -> {VentanaTabla.abrirVentanaTabla();});
         actualizar.setOnAction(e -> {VentanaActualizar.formularioActualizar();});
         eliminar.setOnAction(e -> {VentanaEliminar.formularioEliminar();});
+
+        scene.getStylesheets().add(getClass().getResource("/css/estilos.css").toExternalForm());
+
 
     }
 

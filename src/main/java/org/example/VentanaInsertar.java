@@ -115,7 +115,10 @@ public class VentanaInsertar {
             }
         });
 
-        Scene escena = new Scene(borderPane,300, 200);
+        Scene escena = new Scene(borderPane,400, 350);
+        //PARA AÑADIR LOS ESTILOS DEL CSS
+        escena.getStylesheets().add(VentanaInsertar.class.getResource("/css/estilos.css").toExternalForm());
+
         formulario.setScene(escena);
         formulario.show();
     }

@@ -37,8 +37,11 @@ public class VentanaTabla {
         generoCol.setCellValueFactory(new PropertyValueFactory<>("genero"));
 
         // ANCHO MÍNIMO DE CADA COLUMNA
-        nombreCol.setMinWidth(200);
-        generoCol.setMinWidth(200);
+        //nombreCol.setMinWidth(200);
+        //generoCol.setMinWidth(200);
+
+        //AJUSTA LA TABLA AL ANCHO DISPONIBLE
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
         // SE AÑADEN A LA TABLA
         tableView.getColumns().addAll(nombreCol, generoCol);
@@ -123,7 +126,11 @@ public class VentanaTabla {
         caja.setCenter(tableView);
         caja.setBottom(botonEliminar);
         BorderPane.setAlignment(botonEliminar, Pos.BOTTOM_RIGHT);
-        Scene scene = new Scene(caja, 402, 300);
+
+        Scene scene = new Scene(caja, 450, 350);
+        //PARA AÑADIR LOS ESTILOS DEL CSS
+        scene.getStylesheets().add(VentanaTabla.class.getResource("/css/estilos.css").toExternalForm());
+
         ventana2.setScene(scene);
         ventana2.show();
 

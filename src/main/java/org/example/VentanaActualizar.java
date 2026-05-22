@@ -6,6 +6,7 @@ import javafx.geometry.*;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.util.*;
@@ -122,7 +123,10 @@ public class VentanaActualizar {
             }
         });
 
-        Scene escena = new Scene(borderPane,300, 200);
+        Scene escena = new Scene(borderPane,400, 350);
+        //PARA AÑADIR LOS ESTILOS DEL CSS
+        escena.getStylesheets().add(VentanaActualizar.class.getResource("/css/estilos.css").toExternalForm());
+
         formulario.setScene(escena);
         formulario.show();
     }

@@ -25,13 +25,17 @@ public class VentanaEliminar {
 
         // CREO UN BOTÓN PARA ELIMINAR EL ARTISTA SELECCIONADO
         Button botonEliminar = new Button("Eliminar");
-        // COLOCO EN HORIZONTAL LA ETIQUETA CON LA LISTA
-        HBox horizontal = new HBox(nombreArtista, listaArtista);
+
+        GridPane tabla = new GridPane();
+        tabla.setHgap(15);
+        tabla.setVgap(15);
+        tabla.add(nombreArtista, 0, 0);
+        tabla.add(listaArtista, 1, 0);
 
         // CONTENEDOR
         BorderPane borderPane = new BorderPane();
-        // COLOCO EN LA PARTE DE ARRIBA DE LA VENTANA LA "CAJA HORIZONTAL"
-        borderPane.setTop(horizontal);
+        // COLOCO EN LA PARTE DE ARRIBA DE LA VENTANA LA TABLA
+        borderPane.setTop(tabla);
         // Y EN LA PARTE BAJA DE LA VENTANA EL BOTÓN
         borderPane.setBottom(botonEliminar);
         // LO ALINEO A LA DERECHA DE LA PARTE BAJA
@@ -59,7 +63,10 @@ public class VentanaEliminar {
             }
         });
 
-        Scene escena = new Scene(borderPane,300, 200);
+        Scene escena = new Scene(borderPane,400, 200);
+        //PARA AÑADIR LOS ESTILOS DEL CSS
+        escena.getStylesheets().add(VentanaEliminar.class.getResource("/css/estilos.css").toExternalForm());
+
         formulario.setScene(escena);
         formulario.show();
     }

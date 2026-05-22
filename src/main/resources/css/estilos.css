@@ -1,0 +1,182 @@
+/*Actua en el contenedor principal*/
+.root {
+    /*color de fondo de la ventana*/
+    -fx-background-color: #459199;
+}
+
+/*Aplica la fuente a todo el programa*/
+*{
+    -fx-font-family: "Macondo";
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+                                /*          ESTILOS DE LOS DESPLEGABLES         */
+/*Actua en todos los objetos comboBox*/
+.combo-box{
+    -fx-background-color: #593012;
+    /*color del texto*/
+    -fx-text-fill: white;
+    /*tamaño del texto*/
+    -fx-text-size: 25px;
+
+    /* RELIEVE - sombra debajo del botón */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 6, 0, 0, 3);
+
+    /* BRILLO - degradado de arriba a abajo */
+    -fx-background-color: linear-gradient(to bottom, #1a7a6e, #125259);
+}
+
+/* TEXTO PRINCIPAL DEL COMBOBOX (lo que se ve sin abrir) */
+.combo-box .list-cell {
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+}
+
+/* OPCIONES DENTRO DE LA LISTA DESPLEGABLE */
+.combo-box-popup .list-cell {
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-background-color: #125259;
+
+}
+
+/* OPCIÓN AL PASAR EL RATÓN POR ENCIMA */
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #1a7a6e;
+}
+
+/* OPCIÓN SELECCIONADA */
+.combo-box-popup .list-cell:selected {
+    -fx-background-color: #2BC7D9;
+    -fx-text-fill: white;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+                                /*          ESTILOS DE LAS ETIQUETAS         */
+/*Actua en todos los objetos textField*/
+.text-field {
+    -fx-background-color: #593012;
+    /*color del texto*/
+    -fx-text-fill: white;
+    /*tamaño del texto*/
+    -fx-text-size: 25px;
+
+    /*el prompt más visible*/
+    -fx-prompt-text-fill: rgba(255, 255, 255, 0.8);
+    -fx-font-size: 15px;
+
+    /* RELIEVE - sombra debajo del botón */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 6, 0, 0, 3);
+
+    /* BRILLO - degradado de arriba a abajo */
+    -fx-background-color: linear-gradient(to bottom, #1a7a6e, #125259);
+
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+                                /*          ESTILOS DE LAS ETIQUETAS         */
+/*Actua en los objetos label*/
+.label {
+    /*color del texto*/
+    -fx-text-fill: white;
+    /*tamaño del texto*/
+    -fx-font-size: 30px;
+    /*texto en negrita*/
+    -fx-font-weight: bold;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+                                /*          ESTILOS DE LOS BOTONES         */
+/*Actua en los objetos buttom*/
+.button {
+    /*Color de fondo*/
+    -fx-background-color: #125259;
+    /*Corlor del texto*/
+    -fx-text-fill: white;
+    /*tamaño del texto*/
+    -fx-font-size: 30px;
+    /*texto en negrita*/
+    -fx-font-weight: bold;
+    /*borde de color*/
+    -fx-border-color: #69B7BF ;
+    /*tamaño del borde*/
+    -fx-border-width: 2;
+
+    /* RELIEVE - sombra debajo del botón */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 6, 0, 0, 3);
+
+    /* BRILLO - degradado de arriba a abajo */
+    -fx-background-color: linear-gradient(to bottom, #1a7a6e, #125259);
+
+    /* BORDES REDONDEADOS */
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+}
+
+/* CUANDO EL RATÓN ESTÁ ENCIMA */
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, #20907f, #156b72);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 10, 0, 0, 4);
+    -fx-cursor: hand;
+}
+
+/* CUANDO SE PULSA */
+.button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #125259, #1a7a6e);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1);
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+                                /*          ESTILOS A LA TABLE-VIEW         */
+/*Actua en todas las tableView*/
+/* FONDO GENERAL DE LA TABLA */
+.table-view {
+    -fx-background-color: #125259;
+    -fx-border-color: transparent;
+}
+
+/* CABECERAS DE LAS COLUMNAS */
+.column-header {
+    -fx-background-color: linear-gradient(to bottom, #1a7a6e, #0f3d35);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 6, 0, 0, 3);
+}
+
+.column-header .label {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 4, 0, 0, 2);
+}
+
+/* FILAS */
+.table-row-cell {
+    -fx-background-color: #125259;
+    -fx-border-color: transparent;
+}
+
+/* FILAS ALTERNANDO COLOR */
+.table-row-cell:odd {
+    -fx-background-color: #0f3d35;
+}
+
+/* FILA AL PASAR EL RATÓN */
+.table-row-cell:hover {
+    -fx-background-color: #1a7a6e;
+}
+
+/* FILA SELECCIONADA */
+.table-row-cell:selected {
+    -fx-background-color: #2BC7D9;
+}
+
+/* TEXTO DE LAS CELDAS */
+.table-cell {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-border-color: transparent;
+}
+
+/* ESQUINA SUPERIOR DERECHA DE LA TABLA */
+.column-header-background .filler {
+    -fx-background-color: #0f3d35;
+}
