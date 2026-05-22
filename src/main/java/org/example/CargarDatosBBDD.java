@@ -2,12 +2,8 @@ package org.example;
 
 import java.sql.*;
 import java.util.*;
-
-import javafx.beans.Observable;
 import javafx.collections.*;
 import javafx.scene.control.TableView;
-
-import static org.example.VentanaTabla.tableView;
 
 public class CargarDatosBBDD {
     // METODO QUE RECIBE LA TABLE-VIEW DE ARTISTA (ES LLAMADO DESDE VentanaTabla)
@@ -72,7 +68,4 @@ public class CargarDatosBBDD {
         }
         return listaArtistas;
     }
-
-
-
 }

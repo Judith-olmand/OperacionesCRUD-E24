@@ -1,14 +1,11 @@
 package org.example;
 
 import javafx.geometry.Pos;
-import javafx.application.Application;
 import javafx.geometry.*;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
-
 import java.util.*;
 
 public class VentanaActualizar {
@@ -85,8 +82,6 @@ public class VentanaActualizar {
         tabla.add(generos, 1, 1);
         tabla.add(paisesEtiqueta, 0, 2);
         tabla.add(pais, 1, 2);
-
-
 
         // CONTENEDOR
         BorderPane borderPane = new BorderPane();

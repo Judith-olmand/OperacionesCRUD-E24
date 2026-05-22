@@ -1,7 +1,6 @@
 package org.example;
 
 import javafx.scene.control.Alert;
-
 import java.sql.*;
 
 public class EliminarArtista {
@@ -23,6 +22,5 @@ public class EliminarArtista {
             System.out.println("Error al eliminar artista" +  e.getMessage());
 
         }
-
     }
 }

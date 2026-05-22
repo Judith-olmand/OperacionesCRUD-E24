@@ -1,13 +1,11 @@
 package org.example;
 
 import javafx.geometry.Pos;
-import javafx.application.Application;
 import javafx.geometry.*;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-
 import java.util.Optional;
 
 public class VentanaInsertar {
@@ -61,8 +59,6 @@ public class VentanaInsertar {
         pais.getItems().addAll(paises);
         pais.setValue(paises[0]);
 
-
-
         /*
         COLUMNA     0                           1
         +------------------------+------------------------+
@@ -84,7 +80,6 @@ public class VentanaInsertar {
         tabla.add(pais, 1, 2);
 
         Button botonInsertar = new Button("Insertar");
-
 
         BorderPane borderPane = new BorderPane();
         borderPane.setTop(tabla);

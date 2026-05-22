@@ -3,7 +3,6 @@ package org.example;
 import java.sql.*;
 import javafx.scene.control.Alert;
 
-
 public class ActualizarArtista {
     public static void modificarArtista(String nombre, String genero, String pais){
         String actualizar = "UPDATE ARTISTA SET GENERO_MUSICAL = ?, PAIS_ORIGEN = ? WHERE NOMBRE_A = ?";

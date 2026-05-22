@@ -1,7 +1,6 @@
 package org.example;
 
 import javafx.scene.control.Alert;
-
 import java.sql.*;
 
 public class InsertarArtista {
@@ -15,7 +14,6 @@ public class InsertarArtista {
             ResultSet rs = st.executeQuery(consulta);
             rs.next();
             int idArtista = rs.getInt(1) + 1;
-
 
             ps.setInt(1, idArtista);
             ps.setString(2, nombreA);

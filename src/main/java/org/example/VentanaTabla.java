@@ -8,7 +8,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-
 import java.util.Optional;
 
 public class VentanaTabla {
@@ -90,7 +89,6 @@ public class VentanaTabla {
 
         // AÑADIDO PARA EL EJERCICIO 26, ELIMINAR DESDE TABLE-VIEW
 
-
         Button botonEliminar = new Button("Eliminar");
         botonEliminar.setOnAction(event -> {
             // Obtiene el artista seleccionado en la tabla
@@ -138,6 +136,4 @@ public class VentanaTabla {
         // LLAMA AL MÉTODO PARA CARGAR LOS ARTISTAS EN LA TABLE-VIEW, QUE ES PASADA POR PARÁMETRO
         //CargarDatosBBDD.cargarDatos(tableView);
     }
-
-
 }

@@ -3,19 +3,15 @@ package org.example;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        //PARA CARGAR LA FUENTE
         Font.loadFont(getClass().getResourceAsStream("/fonts/Macondo-Regular.ttf"), 14);
 
         //Título de la ventana principal
@@ -41,13 +37,11 @@ public class Main extends Application {
         actualizar.setOnAction(e -> {VentanaActualizar.formularioActualizar();});
         eliminar.setOnAction(e -> {VentanaEliminar.formularioEliminar();});
 
+        //PARA AÑADIR LOS ESTILOS DEL CSS
         scene.getStylesheets().add(getClass().getResource("/css/estilos.css").toExternalForm());
-
-
     }
 
     public static void main(String[] args) {
         launch(args);
     }
-
 }
