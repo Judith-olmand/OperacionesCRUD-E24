@@ -68,10 +68,14 @@ public class VentanaTabla {
 
         /**
          * valueProperty() --> representa el valor seleccionado del ComboBox como algo "vivo"
-         * addListener() --> le pone un vigilante encima, cada vez que el valor del ComboBox cambia, ejecuta el código de dentro automáticamente.
-         *
+         * addListener() --> le pone un vigilante encima, cada vez que el valor del ComboBox cambia,
+         *                   ejecuta el código de dentro automáticamente
          */
         comboBox.valueProperty().addListener((observable, valoranterior, nuevovalor) -> {
+            /**
+             * setPredicate --> condición tiene que cumplir un artista para mostrarse o no en la tabla,
+             *                  recorre uno por uno todos los artistas de la lista y por cada uno decide
+             */
             listaFiltrada.setPredicate(artista -> {if (nuevovalor == null ||
             nuevovalor.equals("Todos")) return true; return artista.getGenero().equalsIgnoreCase(nuevovalor);});
         });
