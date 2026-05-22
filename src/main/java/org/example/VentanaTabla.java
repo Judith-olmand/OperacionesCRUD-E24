@@ -2,11 +2,14 @@ package org.example;
 
 import javafx.collections.*;
 import javafx.collections.transformation.*;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
+
+import java.util.Optional;
 
 public class VentanaTabla {
     // TABLE-VIEW ACCESIBLE DESDE CUALQUIER CLASE. CADA FILA DE LA TABLA
@@ -82,8 +85,45 @@ public class VentanaTabla {
 
 //--------------------------------------------------------------------------------------------------------------------------------
 
-        VBox vbox = new VBox(comboBox,tableView);
-        Scene scene = new Scene(vbox, 402, 300);
+        // AÑADIDO PARA EL EJERCICIO 26, ELIMINAR DESDE TABLE-VIEW
+
+
+        Button botonEliminar = new Button("Eliminar");
+        botonEliminar.setOnAction(event -> {
+            // Obtiene el artista seleccionado en la tabla
+            Artista artistaSeleccionado = tableView.getSelectionModel().getSelectedItem();
+            if(artistaSeleccionado == null){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Error");
+                alert.setHeaderText("No ha seleccionado ningún artista.");
+                alert.showAndWait();
+            } else {
+                Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+                alerta.setTitle("Confirmación");
+                alerta.setContentText("¿Desea eliminar el artista de la Base de Datos?");
+
+                //Para capturar que se pulsa aceptar o cancelar
+                Optional<ButtonType> resultado = alerta.showAndWait();
+                //Si se pulsa algún boton y es el de ok elimina de la base de datos
+                if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
+                    //LLAMA AL MÉTODO PARA ELIMINAR AL ARTISTA, PASANDO POR PARÁMETRO EL NOMBRE
+                    EliminarArtista.borrarArtista(artistaSeleccionado.getNombre());
+                    // TAMBIÉN BORRO EL ARTISTA DE LA TABLA ORIGINAL, PUES SINO SEGUIRÍA MOSTRANDOLO
+                    listaOriginal.remove(artistaSeleccionado);
+                }
+            }
+        });
+
+//----------------------------------------------------------------------------------------------------------------------
+
+       //VBox vbox = new VBox(comboBox,tableView);
+        BorderPane caja = new BorderPane();
+        caja.setTop(comboBox);
+        BorderPane.setAlignment(comboBox, Pos.TOP_RIGHT);
+        caja.setCenter(tableView);
+        caja.setBottom(botonEliminar);
+        BorderPane.setAlignment(botonEliminar, Pos.BOTTOM_RIGHT);
+        Scene scene = new Scene(caja, 402, 300);
         ventana2.setScene(scene);
         ventana2.show();
 
