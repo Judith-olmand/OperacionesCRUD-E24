@@ -41,7 +41,7 @@ public class VentanaEliminar {
             if (listaArtista.getSelectionModel().getSelectedItem() != null) {
                 Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
                 alerta.setTitle("Confirmación");
-                alerta.setContentText("¿Desea eliminar el artista a la Base de Datos?");
+                alerta.setContentText("¿Desea eliminar el artista de la Base de Datos?");
 
                 //Para capturar que se pulsa aceptar o cancelar
                 Optional<ButtonType> resultado = alerta.showAndWait();

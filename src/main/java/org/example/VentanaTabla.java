@@ -1,5 +1,6 @@
 package org.example;
 
+import javafx.collections.transformation.SortedList;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -37,6 +38,14 @@ public class VentanaTabla {
 
         // SE AÑADEN A LA TABLA
         tableView.getColumns().addAll(nombreCol, generoCol);
+
+
+//        Button ordenar = new Button("Ordenar");
+//        ordenar.setOnAction(event -> {SortedList<Artista> sortedList = new SortedList<>(tableView.getItems());
+//            sortedList.comparatorProperty().bind(tableView.comparatorProperty());
+//            tableView.setItems(sortedList);});
+
+
 
         VBox vbox = new VBox(tableView);
         Scene scene = new Scene(vbox, 402, 300);
